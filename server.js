@@ -135,6 +135,9 @@ import express from "express";
 const app = express();
 const port = 3030;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 const tvCharacters = [
     {
         id: 1,
@@ -223,7 +226,6 @@ app.get("/api/characters/:id", (request, response) => {
             data: "Character does not exist with that id",
         });
     }
-
     response.status(200).json({
         data: character,
     });
@@ -245,9 +247,9 @@ function createCharacter(requestBody) {
     return newCharacter;
 }
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
 app.post("/api/characters", (request, response) => {
+
     if (!request.body) {
         return response.status(400).json({
             data: "Bad Request. Missing required information",
