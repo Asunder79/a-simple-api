@@ -244,6 +244,7 @@ function createCharacter(requestBody) {
     tvCharacters.push(newCharacter)
     return newCharacter;
 }
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.post("/api/characters", (request, response) => {
@@ -268,10 +269,5 @@ app.post("/api/characters", (request, response) => {
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
-<<<<<<< HEAD:server.js
     console.log("Press Ctrl+C to end this process.");
 });
-=======
-    console.log(`Press Control+C to end this process.`);
-})
->>>>>>> 078eb251604aedacaa7ce626407bc3fb4bba956c:part 1/server.js
